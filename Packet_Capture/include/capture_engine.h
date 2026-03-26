@@ -17,7 +17,7 @@ namespace CaptureService
          // Responsibilities:
          // - Open PCAP file
          // - Read packets one by one
-         // - Convert into service-level Packet struct
+         // - Convert into service-level Packet structure
          //
          // ============================================================================
 
