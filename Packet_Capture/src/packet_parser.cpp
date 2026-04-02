@@ -1,6 +1,7 @@
 #include "packet_parser.h"
 #include <winsock2.h>
 #include <ws2tcpip.h>
+using namespace std;
 
 namespace CaptureService
 {
@@ -33,17 +34,17 @@ namespace CaptureService
 
                   int ip_header_len = (ip->version_ihl & 0x0F) * 4;
 
-                  std::cout << "Src IP: " << src_ip
-                            << " | Dst IP: " << dst_ip;
+                  std::cout << " | Src IP: " << src_ip << std::endl
+                          << " | Dst IP: " << dst_ip << std::endl;
 
                   // ================= TCP =================
                   if (ip->protocol == 6)
                   {
                            TCPHeader *tcp = (TCPHeader *)(data + 14 + ip_header_len);
 
-                           std::cout << " | Protocol: TCP";
-                           std::cout << " | Src Port: " << ntohs(tcp->src_port);
-                           std::cout << " | Dst Port: " << ntohs(tcp->dst_port);
+                           std::cout << " | Protocol: TCP" << endl;
+                           std::cout << " | Src Port: " << ntohs(tcp->src_port) << std::endl;
+                           std::cout << " | Dst Port: " << ntohs(tcp->dst_port) << std::endl;
                   }
 
                   // ================= UDP =================
@@ -51,9 +52,9 @@ namespace CaptureService
                   {
                            UDPHeader *udp = (UDPHeader *)(data + 14 + ip_header_len);
 
-                           std::cout << " | Protocol: UDP";
-                           std::cout << " | Src Port: " << ntohs(udp->src_port);
-                           std::cout << " | Dst Port: " << ntohs(udp->dst_port);
+                           std::cout << " | Protocol: UDP" << std::endl;
+                           std::cout << " | Src Port: " << ntohs(udp->src_port) << std::endl;
+                           std::cout << " | Dst Port: " << ntohs(udp->dst_port) << std::endl;
                   }
 
                   std::cout << "\n";
