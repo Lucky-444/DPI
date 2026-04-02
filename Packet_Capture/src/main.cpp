@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include "capture_engine.h"
+#include "packet_parser.h"
 
 using namespace CaptureService;
 
@@ -43,6 +44,8 @@ int main()
                   std::cout << std::dec << "\n";
 
                   std::cout << "-----------------------------\n";
+
+                  PacketParser::parse(pkt);
          }
 
          std::cout << "\n✅ Total Packets Read: " << count << "\n";

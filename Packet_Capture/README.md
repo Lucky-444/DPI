@@ -44,6 +44,12 @@ g++ -std=c++17 -I include src/*.cpp -o capture_service.exe
 Note: -I include flag header files .
 ```
 
+### If you Still get an error, try this command:
+```powershell
+g++ -std=c++17 -I include src/main.cpp src/capture_engine.cpp src/pcap_reader.cpp src/packet_parser.cpp -o capture_service.exe -lws2_32
+```
+
+
 ### Step 4: Run the Executable
 ```powershell
 ./capture_service.exe
