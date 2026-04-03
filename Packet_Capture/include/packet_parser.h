@@ -42,11 +42,24 @@ namespace CaptureService
         uint16_t src_port;
         uint16_t dst_port;
     };
+    struct ParsedPacket
+    {
+        bool has_ip = false;
+
+        std::string src_ip;
+        std::string dest_ip;
+
+        uint16_t src_port = 0;
+        uint16_t dest_port = 0;
+
+        std::string protocol;
+    };
 
     class PacketParser
     {
     public:
-        static void parse(const Packet &pkt);
+    static void parse(const Packet &pkt);
+    static bool parsed(const Packet &pkt, ParsedPacket &out);
     };
 
 }
